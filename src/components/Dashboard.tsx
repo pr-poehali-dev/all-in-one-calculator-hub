@@ -148,6 +148,24 @@ export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
           </div>
         ))}
       </div>
+
+      {/* Users badge */}
+      <div className="flex justify-center pb-4">
+        <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-neon-cyan/20 bg-neon-cyan/5 backdrop-blur-sm">
+          <div className="flex -space-x-2">
+            {["#00f5ff", "#bf00ff", "#ff006e", "#39ff14"].map((c, i) => (
+              <div key={i} className="w-7 h-7 rounded-full border-2 border-cyber-900 flex items-center justify-center text-[10px]"
+                style={{ background: `${c}25`, borderColor: c, boxShadow: `0 0 6px ${c}60` }}>
+                <Icon name="User" size={12} style={{ color: c }} />
+              </div>
+            ))}
+          </div>
+          <div>
+            <p className="font-orbitron text-sm font-bold neon-text-cyan">18 743</p>
+            <p className="text-[10px] font-mono text-muted-foreground">человека уже используют</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
