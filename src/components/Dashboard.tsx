@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const cards = [
@@ -79,7 +80,41 @@ interface DashboardProps {
   onSelect?: (id: string) => void;
 }
 
+const reviews = [
+  {
+    name: "Алексей М.",
+    avatar: "А",
+    color: "#00f5ff",
+    text: "Наконец-то нашёл нормальный калькулятор уравнений! Раньше приходилось искать по разным сайтам, теперь всё в одном месте. Особенно понравился конвертер валют — обновляется в реальном времени.",
+  },
+  {
+    name: "Марина К.",
+    avatar: "М",
+    color: "#bf00ff",
+    text: "Пользуюсь каждый день для работы. Конвертер криптовалют просто огонь — всегда актуальный курс без лишних регистраций и рекламы. Дизайн очень крутой, прямо как из будущего!",
+  },
+  {
+    name: "Дмитрий В.",
+    avatar: "Д",
+    color: "#ff006e",
+    text: "Студент, постоянно решаю уравнения и работаю с дробями. CalcHub экономит кучу времени — шаги решения показывает подробно, всё понятно. Рекомендую всем однокурсникам.",
+  },
+  {
+    name: "Светлана Р.",
+    avatar: "С",
+    color: "#39ff14",
+    text: "Универсальный конвертер — это просто находка! Перевожу метры, килограммы, температуру — всё в одном месте. Удобно, быстро, без рекламы. Сайт работает даже без интернета!",
+  },
+  {
+    name: "Игорь П.",
+    avatar: "И",
+    color: "#fb923c",
+    text: "Отличная подборка инструментов. BASE_CALCULATOR очень помог при изучении систем счисления — перевод между двоичной, шестнадцатеричной и десятичной системами работает мгновенно.",
+  },
+];
+
 export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
+  const [showReviews, setShowReviews] = useState(false);
   return (
     <div className="space-y-8">
       {/* Hero */}
@@ -182,6 +217,43 @@ export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
           </div>
         ))}
       </div>
+
+      {/* Reviews button */}
+      <div className="flex justify-center">
+        <button
+          onClick={() => setShowReviews(v => !v)}
+          className="flex items-center gap-2 px-6 py-3 rounded-xl border border-neon-purple/40 bg-neon-purple/10 text-neon-purple font-rajdhani font-bold text-sm hover:bg-neon-purple/20 transition-all duration-200 shadow-neon-purple"
+        >
+          <Icon name="Star" size={15} className="text-neon-purple" />
+          {showReviews ? "Скрыть отзывы" : "Читать отзывы"}
+          <Icon name={showReviews ? "ChevronUp" : "ChevronDown"} size={15} className="text-neon-purple" />
+        </button>
+      </div>
+
+      {/* Reviews */}
+      {showReviews && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 animate-fade-in">
+          {reviews.map((r) => (
+            <div key={r.name} className="cyber-card rounded-xl p-5 space-y-3" style={{ borderColor: `${r.color}20` }}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center font-orbitron font-bold text-sm"
+                    style={{ background: `${r.color}20`, border: `1px solid ${r.color}40`, color: r.color, boxShadow: `0 0 8px ${r.color}40` }}>
+                    {r.avatar}
+                  </div>
+                  <p className="font-rajdhani font-bold text-sm text-foreground">{r.name}</p>
+                </div>
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-sm">★</span>
+                  ))}
+                </div>
+              </div>
+              <p className="text-xs font-rajdhani text-muted-foreground leading-relaxed">{r.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Users badge */}
       <div className="flex justify-center pb-4">
