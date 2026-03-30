@@ -8,7 +8,7 @@ const cards = [
     icon: "Triangle",
     color: "#00f5ff",
     tag: "ВИЗУАЛЬНО",
-    gradient: "from-cyan-500/10 to-transparent",
+    url: "https://simple-calculator--voevodavlad88.replit.app/",
   },
   {
     id: "algebra",
@@ -17,7 +17,7 @@ const cards = [
     icon: "Sigma",
     color: "#bf00ff",
     tag: "ШАГ ЗА ШАГОМ",
-    gradient: "from-purple-500/10 to-transparent",
+    url: "https://simple-calculator--voevodavlad88.replit.app/fraction-pro/",
   },
   {
     id: "crypto",
@@ -26,7 +26,7 @@ const cards = [
     icon: "Bitcoin",
     color: "#facc15",
     tag: "LIVE API",
-    gradient: "from-yellow-500/10 to-transparent",
+    url: "https://equation-master--voevodavladik.replit.app/",
   },
   {
     id: "currency",
@@ -35,7 +35,7 @@ const cards = [
     icon: "DollarSign",
     color: "#39ff14",
     tag: "20+ СТРАН",
-    gradient: "from-green-500/10 to-transparent",
+    url: "https://equation-master--voevodavladik.replit.app/exchange/",
   },
   {
     id: "budget",
@@ -44,7 +44,7 @@ const cards = [
     icon: "Wallet",
     color: "#ff006e",
     tag: "ФИНАНСЫ",
-    gradient: "from-pink-500/10 to-transparent",
+    url: "https://equation-master--voevodavladik.replit.app/number-base-calc/",
   },
   {
     id: "lifeprice",
@@ -53,7 +53,7 @@ const cards = [
     icon: "Clock",
     color: "#fb923c",
     tag: "ОСОЗНАННОСТЬ",
-    gradient: "from-orange-500/10 to-transparent",
+    url: "https://interactive-length-c-o2kd.bolt.host/",
   },
   {
     id: "plotter",
@@ -62,7 +62,7 @@ const cards = [
     icon: "TrendingUp",
     color: "#00f5ff",
     tag: "ИНТЕРАКТИВНО",
-    gradient: "from-cyan-500/10 to-transparent",
+    url: "https://graph-master-scienti-2kf0.bolt.host/",
   },
   {
     id: "probability",
@@ -71,15 +71,15 @@ const cards = [
     icon: "Dice5",
     color: "#bf00ff",
     tag: "СИМУЛЯТОР",
-    gradient: "from-purple-500/10 to-transparent",
+    url: "https://modern-crypto-conver-3y8t.bolt.host/",
   },
 ];
 
 interface DashboardProps {
-  onSelect: (id: string) => void;
+  onSelect?: (id: string) => void;
 }
 
-export default function Dashboard({ onSelect }: DashboardProps) {
+export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
   return (
     <div className="space-y-8">
       {/* Hero */}
@@ -100,11 +100,13 @@ export default function Dashboard({ onSelect }: DashboardProps) {
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {cards.map((card, i) => (
-          <button
+          <a
             key={card.id}
-            onClick={() => onSelect(card.id)}
+            href={card.url}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{ animationDelay: `${i * 60}ms` }}
-            className="group cyber-card rounded-xl p-5 text-left transition-all duration-300 hover-scale animate-fade-in cursor-pointer"
+            className="group cyber-card rounded-xl p-5 text-left transition-all duration-300 hover-scale animate-fade-in cursor-pointer block"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
@@ -127,7 +129,7 @@ export default function Dashboard({ onSelect }: DashboardProps) {
               <span className="text-[10px] font-mono" style={{ color: card.color }}>Открыть</span>
               <Icon name="ArrowRight" size={10} style={{ color: card.color }} />
             </div>
-          </button>
+          </a>
         ))}
       </div>
 
