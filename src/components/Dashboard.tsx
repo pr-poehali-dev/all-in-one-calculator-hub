@@ -97,6 +97,40 @@ export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
         </p>
       </div>
 
+      {/* Promo block */}
+      <div className="cyber-card rounded-2xl p-6 md:p-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/5 via-transparent to-neon-purple/5 pointer-events-none" />
+        <div className="relative space-y-5">
+          <div className="flex items-center gap-2 mb-1">
+            <Icon name="Zap" size={14} className="text-neon-cyan" />
+            <span className="text-xs font-mono text-neon-cyan tracking-widest uppercase">Почему CalcHub?</span>
+          </div>
+          <p className="font-rajdhani text-xl md:text-2xl font-semibold text-foreground leading-snug max-w-3xl">
+            Забудь про разрозненные сайты и неудобные приложения —
+            здесь собраны <span className="neon-text-cyan">8 профессиональных инструментов</span>, которые
+            закрывают 99% повседневных математических задач.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            {[
+              { icon: "Rocket", color: "#00f5ff", title: "Мгновенный результат", desc: "Никаких кнопок «Посчитать» — ответ появляется сразу при вводе" },
+              { icon: "Shield", color: "#bf00ff", title: "Работает без интернета", desc: "Все расчёты выполняются прямо в браузере, данные никуда не уходят" },
+              { icon: "Star", color: "#ff006e", title: "Продуманный интерфейс", desc: "Каждый калькулятор заточен под конкретную задачу — ничего лишнего" },
+            ].map(item => (
+              <div key={item.title} className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                  style={{ background: `${item.color}15`, border: `1px solid ${item.color}30` }}>
+                  <Icon name={item.icon} size={14} style={{ color: item.color }} />
+                </div>
+                <div>
+                  <p className="font-rajdhani font-bold text-sm text-foreground mb-0.5">{item.title}</p>
+                  <p className="text-xs font-rajdhani text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {cards.map((card, i) => (
