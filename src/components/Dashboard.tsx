@@ -270,6 +270,15 @@ export default function Dashboard({ onSelect: _onSelect }: DashboardProps) {
             <p className="font-orbitron text-sm font-bold neon-text-cyan">18 743</p>
             <p className="text-[10px] font-mono text-muted-foreground">человека уже используют</p>
           </div>
+          <div className="w-px h-8 bg-white/10" />
+          <div className="text-center">
+            <div className="flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span key={i} className="text-yellow-400 text-base leading-none">★</span>
+              ))}
+            </div>
+            <p className="text-[10px] font-mono text-muted-foreground mt-0.5">оценка 5.0</p>
+          </div>
         </div>
       </div>
     </div>
