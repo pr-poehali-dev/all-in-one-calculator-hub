@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 const cards = [
   {
     id: "geometry",
-    title: "Геометрия 8.0",
+    title: "Обычный калькулятор",
     desc: "Площади фигур + теорема Пифагора с живыми SVG",
     icon: "Triangle",
     color: "#00f5ff",
@@ -12,7 +12,7 @@ const cards = [
   },
   {
     id: "algebra",
-    title: "Алгебра",
+    title: "Дроби",
     desc: "Линейные и квадратные уравнения пошагово",
     icon: "Sigma",
     color: "#bf00ff",
@@ -21,7 +21,7 @@ const cards = [
   },
   {
     id: "crypto",
-    title: "Крипто Live",
+    title: "Уравнения",
     desc: "BTC / ETH / TON → USD / RUB в реальном времени",
     icon: "Bitcoin",
     color: "#facc15",
@@ -30,7 +30,7 @@ const cards = [
   },
   {
     id: "currency",
-    title: "Валюты Мира",
+    title: "Глобальная биржа",
     desc: "Конвертер 20+ валют с таблицей курсов",
     icon: "DollarSign",
     color: "#39ff14",
@@ -39,7 +39,7 @@ const cards = [
   },
   {
     id: "budget",
-    title: "Дневной Бюджет",
+    title: ">BASE_CALCULATOR_",
     desc: "Считает лимит трат на день по доходу",
     icon: "Wallet",
     color: "#ff006e",
@@ -48,7 +48,7 @@ const cards = [
   },
   {
     id: "lifeprice",
-    title: "Цена Жизни",
+    title: "УНИВЕРСАЛЬНЫЙ КОНВЕРТЕР",
     desc: "Любая покупка в часах и днях твоей жизни",
     icon: "Clock",
     color: "#fb923c",
@@ -66,7 +66,7 @@ const cards = [
   },
   {
     id: "probability",
-    title: "Вероятность",
+    title: "Конвертер криптовалют",
     desc: "Винрейт, биномиальный расчёт, Монте-Карло",
     icon: "Dice5",
     color: "#bf00ff",
